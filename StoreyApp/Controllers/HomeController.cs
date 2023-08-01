@@ -14,7 +14,7 @@ namespace StoreyApp.Controllers
             return View();
         }
 
-        [HttpPost]
+        [HttpGet]
         public ActionResult GetMeasurers()
         {
             MeasurerService measurerService = new MeasurerService();

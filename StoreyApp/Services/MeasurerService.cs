@@ -15,7 +15,7 @@ namespace StoreyApp.Services
         public async Task<List<Measurer>> GetMeasurers()
         {
 
-            List<Measurer> measurers = new();
+            List<Measurer> measurers = new List<Measurer>();
 
             var mockApiMeasurers = await AddMockApiMeasurersAsync();
 
