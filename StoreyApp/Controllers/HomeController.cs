@@ -1,4 +1,5 @@
-﻿using System;
+﻿using StoreyApp.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -11,6 +12,18 @@ namespace StoreyApp.Controllers
         public ActionResult Index()
         {
             return View();
+        }
+
+        [HttpPost]
+        public ActionResult GetMeasurers()
+        {
+            MeasurerService measurerService = new MeasurerService();
+
+            var measurers = measurerService.GetMeasurers().Result;
+
+            var recordsTotal = measurers.Count();
+
+            return Json(new { draw = "", recordsFiltered = recordsTotal, recordsTotal = recordsTotal, data = measurers });
         }
 
         public ActionResult About()
